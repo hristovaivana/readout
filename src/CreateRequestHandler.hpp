@@ -29,6 +29,11 @@ createRequestHandler(const std::string& rawtype,
     return std::make_unique<WIBRequestHandler>(rawtype, run_marker,
       occupancy_callback, read_callback, pop_callback, front_callback, fragment_sink);
   }
+  
+  if (rawtype == "tp") {
+    return std::make_unique<WIBRequestHandler>(rawtype, run_marker,
+      occupancy_callback, read_callback, pop_callback, front_callback, fragment_sink);
+  }
 
   if (rawtype == "pd") {
     //return std::make_unique<LookupTableLatencyBuffer<types::PD_STRUCT>>(qsize); // example

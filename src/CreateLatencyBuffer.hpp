@@ -30,6 +30,11 @@ createLatencyBuffer(const std::string& rawtype, int qsize,
         occupancy_override, write_override, read_override, pop_override, front_override);
   }
 
+  if (rawtype == "tp") {
+    return std::make_unique<ContinousLatencyBufferModel<RawType>>(qsize, 
+        occupancy_override, write_override, read_override, pop_override, front_override);
+  }
+
   if (rawtype == "pd") {
     //return std::make_unique<LookupTableLatencyBuffer<types::PD_STRUCT>>(qsize); // example
   }
