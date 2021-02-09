@@ -40,10 +40,16 @@ void
 DataLinkHandler::init(const data_t& args)
 {
   ERS_INFO("Initialiyze readout implementation...");
-  readout_impl_ = createReadout(args, run_marker_);
-  if (readout_impl_ == nullptr) {
-    throw std::runtime_error("Readout implementation creation failed...");
+  if (cfg_.raw_type == "wib") {
+    readout_impl_ = createReadout(args, run_marker_);
   }
+  if (cfg_.raw_type == "tp") {
+    readout_impl_ = createReadout(args, run_marker_);
+  }
+  if (readout_impl_ == nullptr) {
+    throw std::runtime_error("TP readout implementation creation failed...");
+  }
+ 
 }
 
 void

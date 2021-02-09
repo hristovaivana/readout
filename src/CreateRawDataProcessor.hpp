@@ -12,6 +12,7 @@
 #include "RawDataProcessorConcept.hpp"
 #include "FlowGraphRawDataProcessorModel.hpp"
 #include "WIBFrameProcessor.hpp"
+#include "TPFrameProcessor.hpp"
 
 namespace dunedaq {
 namespace readout {
@@ -24,7 +25,7 @@ createRawDataProcessor(const std::string& rawtype, std::function<void(RawType*)>
     return std::make_unique<WIBFrameProcessor>(rawtype, process_function);
   }
   if (rawtype == "tp") {
-    return std::make_unique<WIBFrameProcessor>(rawtype, process_function);
+    return std::make_unique<TPFrameProcessor>(rawtype, process_function);
   }
 
   return nullptr;

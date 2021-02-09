@@ -74,7 +74,7 @@
             "modules": [
                 {
                     "data": {
-                        "data_filename": "/tmp/frames.bin",
+                        "tp_data_filename": "/tmp/tp_frames.bin",
                         "input_limit": 10485100,
                         "link_ids": [
                             0

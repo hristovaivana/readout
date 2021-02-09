@@ -11,6 +11,7 @@
 #include "ReadoutIssues.hpp"
 #include "RequestHandlerConcept.hpp"
 #include "WIBRequestHandler.hpp"
+#include "TPRequestHandler.hpp"
 
 namespace dunedaq {
 namespace readout {
@@ -31,7 +32,7 @@ createRequestHandler(const std::string& rawtype,
   }
   
   if (rawtype == "tp") {
-    return std::make_unique<WIBRequestHandler>(rawtype, run_marker,
+    return std::make_unique<TPRequestHandler>(rawtype, run_marker,
       occupancy_callback, read_callback, pop_callback, front_callback, fragment_sink);
   }
 

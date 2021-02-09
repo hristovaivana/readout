@@ -35,6 +35,9 @@ const constexpr std::size_t FLX_SUPERCHUNK_FACTOR = 12;
 
 const constexpr std::size_t WIB_SUPERCHUNK_SIZE = 5568; // for 12: 5568
 
+const constexpr std::size_t TP_FRAME_SIZE = 464;
+const constexpr std::size_t TP_SUPERCHUNK_SIZE = 5568; // for 12: 5568
+
 } // namespace constant
 } // namespace readout
 } // namespace dunedaq

@@ -56,14 +56,14 @@ public:
 
 private:
   using sink_t = appfwk::DAQSink<std::unique_ptr<types::WIB_SUPERCHUNK_STRUCT>>;
-  using tp_sink_t = appfwk::DAQSink<std::unique_ptr<types::WIB_SUPERCHUNK_STRUCT>>;
+  using tp_sink_t = appfwk::DAQSink<std::unique_ptr<types::TP_SUPERCHUNK_STRUCT>>;
   // Commands
   void do_conf(const data_t& /*args*/);
   void do_start(const data_t& /*args*/);
   void do_stop(const data_t& /*args*/);
 
   void generate_data(sink_t* queue, int link_id);
-  void generate_data_tp(tp_sink_t* queue, int link_id);
+  void generate_tp_data(tp_sink_t* queue, int link_id);
 
   // Configuration
   bool configured_;
@@ -78,6 +78,7 @@ private:
 
   // Internals
   std::unique_ptr<FileSourceBuffer> source_buffer_;
+  std::unique_ptr<FileSourceBuffer> tp_source_buffer_;
 
   // Processor
   std::vector<std::thread> worker_threads_;
